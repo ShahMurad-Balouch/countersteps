@@ -4,6 +4,7 @@ let today = new Date();
 
 
 var activity = document.querySelector(".activity");
+
 $(".count-btns").click(function () {
     $.get("https://api.adviceslip.com/advice", function(data){
         let parsedData = JSON.parse(data);
@@ -44,11 +45,11 @@ addCount.addEventListener('click', () => {
         countNumbers.textContent = `Counts : ${counts}`;
         if(counts>0){
             today.setDate(today.getDate() + steps);
-            update.textContent = `${steps} days from today is ${today.toDateString()}`;
+            update.textContent = `${counts} days from today is ${today.toDateString()}`;
         }
         else{
 
-            update.textContent = `${steps} days ago was ${today.toDateString()}`;
+            update.textContent = `${counts} days ago was ${today.toDateString()}`;
         }
        
     }
@@ -60,11 +61,11 @@ minusCount.addEventListener('click', () => {
     countNumbers.textContent =`Counts : ${counts}`;
     if(counts<0){
         today.setDate(today.getDate() - steps);
-        update.textContent = `${steps} days ago was ${today.toDateString()}`;
+        update.textContent = `${counts} days ago was ${today.toDateString()}`;
     }
     else{
 
-        update.textContent = `${steps} days from today is ${today.toDateString()}`;
+        update.textContent = `${counts} days from today is ${today.toDateString()}`;
     }
 });
 
